@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::get('/image/groupadd','ImageController@group_add');
+Route::post('/image/groupadd','ImageController@group_store');
+Route::resource('/image', 'ImageController');
