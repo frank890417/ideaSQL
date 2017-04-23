@@ -11,9 +11,10 @@ class ImageController extends Controller
 {
     //
   public function index(){
-    $images=Image::all();
+    $images=Image::orderBy("id","asc")->limit(100)->get();
     return view('image_index')
-            ->with('images',$images);
+            ->with('images',$images)
+            ;
 
 
   }
