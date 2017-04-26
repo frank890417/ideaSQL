@@ -46,10 +46,6 @@ class ImageController extends Controller
      return Redirect::to('/image');
   }
 
-  public function json_image(){
-    $images = Image::orderBy('id', 'asc')->get();
-    return $images;
-  }
 
 }
 
