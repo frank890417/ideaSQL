@@ -23,9 +23,10 @@ Route::group(['middleware'=>"cors"],function(){
   Route::get("/image/search/{name}","ApiController@search_image");
 
   Route::get("/image/wordbreak/{words}","ApiController@work_break");
+  Route::get("/image/test/","ApiController@test");
 
   Route::get("/image/search_multi/{name}","ApiController@search_image_multi");
-  
+
   Route::get("/image/hash/{hash}","ApiController@search_image");
 });
 

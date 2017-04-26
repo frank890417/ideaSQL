@@ -11,16 +11,24 @@
                     <a href="/image/groupadd" class="btn btn-default"> 群組加入</a>
                     <table class="table table-striped">
                         <thead>
-                            <th style="width: 5%">編號</th>
-                            <th style="width: 30%">網址</th>
-                            <th style="width: 65%">文字</th>
+                            <th style="width: 3%">編號</th>
+                            <th style="width: 10%">網址</th>
+                            <th style="width: 10%">時間</th>
+                            <th style="width: 25%">文字</th>
+                            <th style="width: 15%">主顏色</th>
+                            <th style="width: 25%">詳細資訊(json)</th>
+                            <th style="width: 3%">資料集</th>
                         </thead>
                         <tbody>
                             @foreach ($images as $image)
                             <tr>
                                 <td>{{ $image->id }}</td>
-                                <td>{{ $image->img_link }}</td>
-                                <td>{{ $image->content }}</td>
+                                <td><img style="width: 100px" src="{{$image->img_link}}"/><br><p style="word-break: break-all; font-size: 10px">{{ $image->img_link }}</p></td>
+                                <td><p style="word-break: break-all">{{ $image->time }}</p></td>
+                                <td><p style="word-break: break-all; font-size: 10px">{{ substr($image->content,0,500)."..." }}</p></td>
+                                <td><div style='display: inline-block;width: 40px;height: 40px;border: solid 1px #333;background-color: rgb({{ $image->color_r.','.$image->color_g.','.$image->color_b }})'></div>({{ $image->color_r.','.$image->color_g.','.$image->color_b }})</td>
+                                <td><p style="word-break: break-all; font-size: 10px">{{ substr($image->detail_infos,0,500)."..." }}</p></td>
+                                <td>{{ $image->source }}</td>
                             </tr>
                             @endforeach
                         </tbody>
