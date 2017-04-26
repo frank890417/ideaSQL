@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::group(['middleware'=>"cors"],function(){
+Route::group(['prefix' => 'api', 'middleware' => ['cors', 'api'], 'namespace' => 'API'],function(){
   Route::get("/image","ApiController@json_image");
 
   Route::get("/image/search/{name}","ApiController@search_image");
