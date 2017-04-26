@@ -45,12 +45,7 @@ class ApiController extends Controller
       // Finalseg::init();
 
       // $seg_list = Jieba::cut("怜香惜玉也得要看对象啊！");
-
-<<<<<<< HEAD
-=======
-      dd($test);
-
->>>>>>> a36d8d7f3eb2ed7454d8eb70569eee88352b3e06
+ 
       foreach ($namesplit as $key=>$sp) {
           if ($key==0){
             $images = Image::where('content', 'LIKE', '%'.$sp.'%');
@@ -65,11 +60,7 @@ class ApiController extends Controller
       $images = $images->get();
       return $images;
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> a36d8d7f3eb2ed7454d8eb70569eee88352b3e06
     public function work_break($words){
       return file_get_contents("http://api.qsearch.cc/api/tokenizing/v1/segment?key=afe4ba4b7373f58bfc1596929a39dd6bd8b2dcbd4e509cd269b122aef71ca397&message=".$words."&format=json");
     }
