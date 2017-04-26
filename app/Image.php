@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     //
-    protected $fillable = ['img_link','content','color','brightness','time'];
+    protected $fillable = ['img_link','content','color','href','brightness','time'];
 }

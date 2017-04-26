@@ -19,6 +19,7 @@ class Image extends Migration
           $table->increments('id');
           $table->string('img_link',500)->nullable();
           $table->text('content')->nullable();
+          $table->string('href')->nullable();
           $table->string('color')->nullable();
           $table->string('brightness')->nullable();
           $table->string('time')->nullable();
