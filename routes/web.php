@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/testapi', 'HomeController@testapi');
 Route::get('/home', 'HomeController@index');
 Route::get('/image/groupadd','ImageController@group_add');
 Route::post('/image/groupadd','ImageController@group_store');
