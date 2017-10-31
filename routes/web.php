@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ImageController@index');
 
 Auth::routes();
 
 Route::get('/testapi', 'HomeController@testapi');
 Route::get('/image/cata/delete/{cataname}', 'ImageController@removeCata');
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'ImageController@index');
 Route::get('/image/groupadd','ImageController@group_add');
 Route::post('/image/groupadd','ImageController@group_store');
 Route::resource('/image', 'ImageController');
