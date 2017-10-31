@@ -8,13 +8,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Image;
 use File;
+// use DB;
 class ImageController extends Controller
 {
     //
   public function index(){
     $images=Image::orderBy("id","asc")->limit(100)->get();
+    $catas= DB::table('images')
+            ->select('source')
+            ->groupBy('source')
+            ->get();
+    // dd($catas);
     return view('image_index')
             ->with('images',$images)
+            ->with('catas',$catas)
             ;
 
 
@@ -31,6 +38,14 @@ class ImageController extends Controller
 
     return view('image_create');
   }
+
+  public function removeCata($cataname){
+    $catas= DB::table('images')
+            ->where('source',str_replace(";sharp;","#",$cataname) )
+            ->delete();
+    return Redirect::to('/image');
+  }
+
 
   public function group_store(){
     $inputs=Input::all();

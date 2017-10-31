@@ -9,6 +9,16 @@
 
                 <div class="panel-body">
                     <a href="/image/groupadd" class="btn btn-default"> 群組加入</a>
+                    <h2>資料集</h2>
+                    <ul class="list-group">
+                        @foreach ($catas as $cata)
+                            <li class="list-group-item">
+                                {{$cata->source}} 
+                                <div class="btn btn-danger pull-right" onclick="removeset('{{$cata->source}}')">移除</div>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <h2>影像概覽</h2>
                     <table class="table table-striped">
                         <thead>
                             <th style="width: 3%">編號</th>
@@ -40,4 +50,13 @@
         </div>
     </div>
 </div>
+
+<script>
+
+window.removeset = function(cata){
+    if (confirm("你確定要移除資料集「"+cata+"」嗎?")){
+        window.location= "/image/cata/delete/"+cata.replace("#",";sharp;");
+    }
+}
+</script>
 @endsection
